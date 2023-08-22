@@ -42,7 +42,7 @@ public struct NetworkLogger {
             print("Response Headers: \(headers)")
         }
         
-        if let data = data {
+        if let data {
             do {
                 let jsonObject = try JSONSerialization.jsonObject(with: data, options: .mutableContainers)
                 let jsonData = try JSONSerialization.data(withJSONObject: jsonObject, options: .prettyPrinted)
