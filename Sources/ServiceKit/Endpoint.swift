@@ -29,3 +29,5 @@ public enum Parameters {
     case dictionary([String: Any])
     case encodable(Encodable)
 }
+
+public typealias Parameter = [String: Any]

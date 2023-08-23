@@ -11,7 +11,7 @@ public class DefaultRequestBuilder: RequestBuilder {
         
     public func buildRequest(with endpoint: Endpoint, url: URL) -> URLRequest {
         var request = URLRequest(url: url)
-        request.httpMethod = endpoint.method.rawValue
+        request.httpMethod = "POST" //endpoint.method.rawValue
         request.allHTTPHeaderFields = endpoint.headers
         
         if let parameters = endpoint.parameters {
