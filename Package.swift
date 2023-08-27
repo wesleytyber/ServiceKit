@@ -14,11 +14,13 @@ let package = Package(
             targets: ["ServiceKit"]
         ),
     ],
-    dependencies: [],
+    dependencies: [
+        .package(url: "https://github.com/Alamofire/Alamofire.git", from: "5.7.1")
+    ],
     targets: [
         .target(
             name: "ServiceKit",
-            dependencies: []
+            dependencies: ["Alamofire"]
         ),
         .testTarget(
             name: "ServiceKitTests",
