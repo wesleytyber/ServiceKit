@@ -20,14 +20,6 @@ public struct NetworkLogger {
             print("HTTP Method: \(httpMethod)")
         }
         
-        if verbose, let headers = request?.allHTTPHeaderFields {
-            print("Headers: \(headers)")
-        }
-        
-        if verbose, let body = request?.httpBody, let bodyString = String(data: body, encoding: .utf8) {
-            print("Body Request: \(bodyString)")
-        }
-        
         if let httpResponse = response as? HTTPURLResponse {
             let statusCode = httpResponse.statusCode
             let statusIcon = (200...299).contains(statusCode) ? "✅" : "❌"
@@ -36,6 +28,14 @@ public struct NetworkLogger {
             print("🔴 Error: \(error.localizedDescription)")
         } else {
             print("🔴 Error: No Response and No Error")
+        }
+        
+        if verbose, let headers = request?.allHTTPHeaderFields {
+            print("Headers: \(headers)")
+        }
+        
+        if verbose, let body = request?.httpBody, let bodyString = String(data: body, encoding: .utf8) {
+            print("Body Request: \(bodyString)")
         }
         
         if verbose, let headers = (response as? HTTPURLResponse)?.allHeaderFields as? [String: Any] {
